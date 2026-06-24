@@ -84,6 +84,7 @@ const userSchema = new mongoose.Schema(
       default: "",
     },
 
+
     bio: {
       type: String,
 
@@ -129,6 +130,15 @@ const userSchema = new mongoose.Schema(
 
       match: [/^[0-9]{10}$/, "Invalid WhatsApp number"],
     },
+
+    // This going to detect the watch History of videos , which is watched by users
+    // now watchHistory is array , we define structure of each ele , 
+    watchHistory:[
+      {
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"Video",
+    },
+    ],
 
     followersCount: {
       type: Number,
